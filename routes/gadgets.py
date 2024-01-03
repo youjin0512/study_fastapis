@@ -20,7 +20,7 @@ templates = Jinja2Templates(directory="templates/")
 router = APIRouter()   # APIRouter()라는 class를 router라는 변수에 담음
 
 
-@router.get("/button", response_class=HTMLResponse)
+@router.get("/buttons", response_class=HTMLResponse)
 async def home(Request:Request) :
     pass
     return templates.TemplateResponse(name="/gadgets/buttons.html", context={"request":Request})  # TemplateResponse라는 패키지는 진자에 의해 운영
@@ -36,7 +36,7 @@ async def home(Request:Request) :
 @router.get("/containers", response_class=HTMLResponse)
 async def home(Request:Request) :
     pass
-    return templates.TemplateResponse(name="containers.html", context={"request":Request})
+    return templates.TemplateResponse(name="gadgets/containers.html", context={"request":Request})
 
 
 
