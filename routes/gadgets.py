@@ -17,31 +17,26 @@ templates = Jinja2Templates(directory="templates/")
 #     # return 0
 #     html = "<body> <h2>It's Home</h2> </body>"
 #     return html
-router1 = APIRouter()   # APIRouter()라는 class를 router라는 변수에 담음
-router2 = APIRouter()
-router3 = APIRouter()
-router4 = APIRouter()
+router = APIRouter()   # APIRouter()라는 class를 router라는 변수에 담음
 
-@router1.get("/")  # / : 여기를 root라고 봄
+
+@router.get("/button", response_class=HTMLResponse)
 async def home(Request:Request) :
     pass
-    return templates.TemplateResponse(name="gadgets/buttons.html"  # TemplateResponse 라는 패키지는 진자에 의해 운영
-                                      , context={"request":Request})
-@router2.get("/")  # / : 여기를 root라고 봄
+    return templates.TemplateResponse(name="/gadgets/buttons.html", context={"request":Request})  # TemplateResponse라는 패키지는 진자에 의해 운영
+
+@router.get("/cards", response_class=HTMLResponse)
 async def home(Request:Request) :
     pass
-    return templates.TemplateResponse(name="gadgets/cards.html"       # TemplateResponse 라는 패키지는 진자에 의해 운영
-                                      , context={"request":Request})
-@router3.get("/")  # / : 여기를 root라고 봄
+    return templates.TemplateResponse(name="gadgets/cards.html", context={"request":Request})
+@router.get("/colors", response_class=HTMLResponse)
 async def home(Request:Request) :
     pass
-    return templates.TemplateResponse(name="gadgets/colors.html"       # TemplateResponse 라는 패키지는 진자에 의해 운영
-                                      , context={"request":Request})  
-@router1.get("/")  # / : 여기를 root라고 봄
+    return templates.TemplateResponse(name="gadgets/colors.html", context={"request":Request})  
+@router.get("/containers", response_class=HTMLResponse)
 async def home(Request:Request) :
     pass
-    return templates.TemplateResponse(name="containers.html"       # TemplateResponse 라는 패키지는 진자에 의해 운영
-                                      , context={"request":Request})
+    return templates.TemplateResponse(name="containers.html", context={"request":Request})
 
 
 

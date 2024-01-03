@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="./css/menus.css">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="container">
+        <ul class="nav justify-content-center">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Gadgets</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/gadgets/buttons" class="dropdown-item">buttons</a>
+                    </li>
+                    <li>
+                        <a href="/gadgets/cards" class="dropdown-item">Cards</a>
+                    </li>
+                    <li>
+                        <a href="/gadgets/colors" class="dropdown-item">colors</a>
+                    </li>
+                    <li>
+                        <a href="/gadgets/containers" class="dropdown-item">containers</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Positionings</a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/positionings/forms" class="dropdown-item">forms</a>
+                    </li>
+                    <li>
+                        <a href="/positionings/grids" class="dropdown-item">grids</a>
+                    </li>
+                    <li>
+                        <a href="/positionings/standards" class="dropdown-item">standards</a>
+                    </li>
+                    <li>
+                        <a href="/positionings/tables" class="dropdown-item">tables</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Disabled</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="container">
+        {% block main_container %} <!-- html에서 진자를 바라볼 수 있는 특수코드 -->
+        {% endblock %} <!-- block이 끝났다는 표시 -->
+    </main>
+    <footer class="container">
+        <h4>footer</h4>
+    </footer>
+</body>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>

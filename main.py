@@ -11,10 +11,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-from routes.homes import router as event_router
+
+# from routes.homes import router as event_router
 from routes.gadgets import router as event_router1
 from routes.positionings import router as event_router2
-app.include_router(event_router, prefix='/home')
+# app.include_router(event_router, prefix='/home')
 app.include_router(event_router1, prefix='/gadgets')
 app.include_router(event_router2, prefix='/positionings')
 
