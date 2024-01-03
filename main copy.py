@@ -25,6 +25,12 @@ app.add_middleware(
 
 @app.get("/")
 async def root(Request:Request):
-    # return {"message": "jisu World"}
+    # return {"message": "youjin World"}
     return templates.TemplateResponse("main.html",
+                                      {'request':Request})
+
+@app.get("/index")
+async def root(Request:Request):
+    # return {"message": "youjin World"}
+    return templates.TemplateResponse("index.html",
                                       {'request':Request})
