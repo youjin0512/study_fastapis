@@ -9,32 +9,36 @@ from fastapi import Request
 # html 틀이 있는 폴더 위치
 templates = Jinja2Templates(directory="templates/")
 
-# 회원 가입 form  /users/form -> users/inserts.html
-@router.get("/form")        # app(fastAPI())라는 class에 get function 사용 
-async def inserts(request:Request) :   # request : function의 변수
-        return templates.TemplateResponse(name="users/inserts.html",
-                                          context={"request":request})  # TemplateResponse라는 패키지는 진자에 의해 운영
+# 회원가입(forms)
+@router.get("/form")
+async def form(Request:Request) :
+    pass
+    return templates.TemplateResponse(name="/users/inserts.html", context={"request":Request})
 
-# 회원 가입 /users/inserts -> users/login.html
-@router.get("/insert")   
-async def inserts(request:Request) : 
-        pass    # biz
-        return templates.TemplateResponse(name="/users/login.html",
-                                          context={"request":request})  
+# 로그인(insert)
+@router.post("/login")
+async def login(Request:Request) :
+    pass
+    return templates.TemplateResponse(name="/users/logins.html", context={"request":Request})
 
-# @get("/home/list")
-# async                   # 하나의 세트로 네트워크에서 fuction 호출 시 사용
+# 회원 리스트(list)
+@router.get("/list")
+async def list(Request:Request) :
+    pass
+    return templates.TemplateResponse(name="/users/lists.html", context={"request":Request})
 
+# 회원 상세(read)
+@router.get("/read/{object_id}")
+async def list(Request:Request, object_id) :
+    pass
+    return templates.TemplateResponse(name="/users/reads.html", context={"request":Request})
 
-# 회원 리스트 /users/list -> users/list.html
-@router.get("/list")       
-async def inserts(request:Request) : 
-        return templates.TemplateResponse(name="users/lists.html",
-                                          context={"request":request}) 
-
-# 회원 상세정보 /users/read -> users/reads.html
-# Path parameters : /users/read/id or /users/read/unique_name      # read 클릭 했을때 특정 사람에 대해서 표현이 되야됨
-@router.get("/read/{object_id}")    # {object_id} -> 변수
-async def inserts(request:Request, object_id) :   # object_id -> function
-        return templates.TemplateResponse(name="users/reads.html",
-                                          context={"request":request})
+# 회원상세(read) : 리스트(get), 삭제(post)
+# @router.get("/read/{object:id}")
+# async def read(Request:Request) :
+#     pass
+#     return templates.TemplateResponse(name="/users/reads.html", context={"request":Request})
+# @router.post("/read/{object:id}")
+# async def read(Request:Request) :
+#     pass
+#     return templates.TemplateResponse(name="/users/reads.html", context={"request":Request})
