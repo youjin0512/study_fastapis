@@ -1,8 +1,5 @@
 from fastapi import APIRouter
 from fastapi.templating import Jinja2Templates
-
-      
-
 from starlette.responses import HTMLResponse
 from fastapi import Request
 
@@ -21,20 +18,44 @@ router = APIRouter()   # APIRouter()라는 class를 router라는 변수에 담�
 
 
 @router.get("/buttons", response_class=HTMLResponse)
-async def home(Request:Request) :
+async def buttons(Request:Request) :
     pass
     return templates.TemplateResponse(name="/gadgets/buttons.html", context={"request":Request})  # TemplateResponse라는 패키지는 진자에 의해 운영
 
-@router.get("/cards", response_class=HTMLResponse)
-async def home(Request:Request) :
-    pass
+@router.get("/cards")   # cards_GET 방식
+# Request = Request (query_parameters)
+async def cards(Request:Request) :
+    ## 디버깅콘솔창에서 나온 내용 -> 몽고DB에 입력 가능
+    # Request.query_params
+    # QueryParams('name=youjin&email=kelly.youjin.kim%40gmail.com')
+    
+    # dict(Request.query_params)
+    # {'name': 'youjin', 'email': 'kelly.youjin.kim@gmail.com'}  # request class : '요청'을 받는 묶음
     return templates.TemplateResponse(name="gadgets/cards.html", context={"request":Request})
+
+@router.post("/cards")   # cards_POST 방식
+async def cards_post(Request:Request) :
+    ## 디버깅콘솔창에서 나온 내용 -> 몽고DB에 입력 가능
+    # Request.query_params
+    # QueryParams('')
+
+    # await Request.form()
+    # FormData([('name', 'youjin'), ('email', 'kelly.youjin.kim@gmail.com')])
+
+    # dict(await Request.form())
+    # {'name': 'youjin', 'email': 'kelly.youjin.kim@gmail.com'}
+
+    # form_datas = await Request.form()
+    # dict(form_datas)
+    return templates.TemplateResponse(name="gadgets/cards.html", context={"request":Request})
+
 @router.get("/colors", response_class=HTMLResponse)
-async def home(Request:Request) :
+async def colors(Request:Request) :
     pass
     return templates.TemplateResponse(name="gadgets/colors.html", context={"request":Request})  
+
 @router.get("/containers", response_class=HTMLResponse)
-async def home(Request:Request) :
+async def containers(Request:Request) :
     pass
     return templates.TemplateResponse(name="gadgets/containers.html", context={"request":Request})
 

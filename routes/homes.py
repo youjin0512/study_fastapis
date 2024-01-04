@@ -18,7 +18,7 @@ templates = Jinja2Templates(directory="templates/")
 #     html = "<body> <h2>It's Home</h2> </body>"
 #     return html
 @router.get("/")  # / : 여기를 root라고 봄
-async def home(Request:Request) :
+async def root(Request:Request) :
     pass
     return templates.TemplateResponse(name="homes/standards.html"       # TemplateResponse 라는 패키지는 진자에 의해 운영
                                       , context={"request":Request})  
@@ -35,3 +35,11 @@ async def home_list() :
 
 # @get("/home/list")
 # async                   # 하나의 세트로 네트워크에서 fuction 호출 시 사용
+
+
+# /homes/params_query -> /homes/parameters_query.html 호출
+@router.get("/params_query")
+async def home(Request:Request) :
+    pass
+    return templates.TemplateResponse(name="homes/parameters_query.html" # TemplateResponse 라는 패키지는 진자에 의해 운영
+                                      , context={"request":Request})   # 10열에 templates/에 대한 경로가 설정되어 생략함
