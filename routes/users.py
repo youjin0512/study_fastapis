@@ -34,7 +34,7 @@ async def inserts(request:Request) :
 
 # 회원 상세정보 /users/read -> users/reads.html
 # Path parameters : /users/read/id or /users/read/unique_name      # read 클릭 했을때 특정 사람에 대해서 표현이 되야됨
-@router.get("read/{object_id}")    # {object_id} -> 변수
+@router.get("/read/{object_id}")    # {object_id} -> 변수
 async def inserts(request:Request, object_id) :   # object_id -> function
         return templates.TemplateResponse(name="users/reads.html",
                                           context={"request":request})
